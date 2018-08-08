@@ -3,12 +3,16 @@ package pe.andres.bairesdev.ui.common.view;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 
+import pe.andres.bairesdev.App;
 import pe.andres.bairesdev.ui.common.presenter.Presenter;
 
 import javax.inject.Inject;
 
 public abstract class BaseViewFragment<T extends Presenter> extends BaseFragment
         implements BaseView {
+
+
+//    static Prefs prefs = App.getPrefs()
 
     @Inject
     protected T presenter;
