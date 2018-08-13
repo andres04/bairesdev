@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "pe.andres.bairesdev"
+        versionCode 1
+        versionName '1.0.0'
+
+        minSdkVersion 17
+        targetSdkVersion 27
+
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    def androidVersion = '27.1.1'
+    def daggerVersion = '2.16'
+    def glideVersion = '4.6.1'
+    def rxAndroidVersion = '2.0.2'
+    def rxJavaVersion = '2.2.0'
+
+    implementation "com.android.support:appcompat-v7:$androidVersion"
+    implementation "com.android.support:design:$androidVersion"
+    implementation "com.android.support:support-v13:$androidVersion"
+    implementation "com.android.support:cardview-v7:$androidVersion"
+
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation project(':data')
+    implementation project(':domain')
+}
+
+repositories {
+    mavenCentral()
+}
+
+kapt {
+    generateStubs = true
+}

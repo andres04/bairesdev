@@ -16,4 +16,4 @@
 
 rootProject.name = "BairesDev"
 
-include ':app'
+include ':presentation', ':data', ':domain'
